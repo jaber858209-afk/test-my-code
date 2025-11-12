@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JMATHCODE - 100 Programming Languages</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00BFFF; /* DeepSkyBlue */
+            --background-color: #0A0F1A;
+            --card-background: rgba(13, 22, 39, 0.7);
+            --border-color: rgba(0, 191, 255, 0.3);
+        }
+
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background-color: var(--background-color);
+            color: #c9d1d9;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .header-title {
+            text-shadow: 0 0 8px var(--primary-color), 0 0 12px var(--primary-color);
+            animation: flicker 3s infinite alternate;
+        }
+
+        .card {
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(12px);
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .card:before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(0, 191, 255, 0.15), transparent 30%);
+            animation: rotate 6s linear infinite;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.6), 0 0 35px rgba(0, 191, 255, 0.4);
+            border-color: rgba(0, 191, 255, 0.8);
+        }
+
+        .card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-link {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .search-box {
+            background: var(--card-background);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.5);
+        }
+
+        #no-results {
+            display: none;
+        }
+        
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                0 0 4px var(--primary-color),
+                0 0 11px var(--primary-color),
+                0 0 19px var(--primary-color),
+                0 0 40px var(--primary-color);
+            }
+            20%, 24%, 55% {       
+                text-shadow: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particles-js"></canvas>
+    
+    <!-- Header Section -->
+    <header class="bg-black/50 backdrop-blur-sm border-b border-cyan-400/20 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-3xl lg:text-4xl font-bold text-center text-cyan-400 font-orbitron header-title">JEYAULPDW</h1>
+            <p class="text-center text-gray-400 mt-2">প্রোগ্রামিং ভাষার দুনিয়ায় আপনাকে স্বাগতম
+ (আপনারা যে প্রোগ্রামিং ভাষাটি ডাউনলোড করতে চান তার উপর ক্লিক করন)</p>
+ <div class="text-center">
+
+<a href="https://jeyauljaber.github.io/JMATHCODE_All_programming_languages/" class="download-btn">
+ <style> .animated-highlight { background-color: #000000; padding: 2px 5px; border-radius: 3px; 
+    animation: pulse 2s infinite; } @keyframes pulse { 0% { background-color: #000000ff; } 50% { background-color: #e50202; } 100% { background-color: #00694a; } } </style> <p> 
+    <span class="animated-highlight">নতুন নতুন স্কিল ডেবলপ করতে চাইলে এখানে ক্লিক করুন⛓️‍💥</span></p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="w-full max-w-2xl mx-auto mb-10">
+            <input type="text" id="search-input" placeholder="এখানে ভাষা খুঁজুন..." class="search-box w-full px-4 py-3 rounded-lg text-lg text-cyan-200 placeholder-gray-500 font-orbitron">
+        </div>
+
+        <!-- Programming Languages Grid -->
+        <div id="language-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <!-- Languages will be dynamically inserted here -->
+        </div>
+        <p id="no-results" class="text-center text-xl text-gray-400 mt-10">কোনো ফলাফল পাওয়া যায়নি।</p>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-black/30 mt-12 py-6 border-t border-cyan-400/20">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2025 JEYAULPDW. সর্বস্বত্ব সংরক্ষিত।</p>
+        </div>
+    </footer>
+
+    <script>
+        // Particle Background Script
+        const canvas = document.getElementById('particles-js');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        let particlesArray;
+
+        const particleColor = 'rgba(0, 191, 255, 0.5)';
+
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * .4) - .2;
+                let directionY = (Math.random() * .4) - .2;
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, particleColor));
+            }
+        }
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+        }
+
+        window.addEventListener('resize', () => {
+            canvas.width = innerWidth;
+            canvas.height = innerHeight;
+            initParticles();
+        });
+
+        initParticles();
+        animateParticles();
+
+        // Language data and grid generation
+        const languages = [
+            { name: "Python", link: "https://www.python.org/downloads/" },
+            { name: "JavaScript", link: "https://nodejs.org/" },
+            { name: "Java", link: "https://www.oracle.com/java/technologies/downloads/" },
+            { name: "C++", link: "https://isocpp.org/get-started" },
+            { name: "C#", link: "https://dotnet.microsoft.com/download" },
+            { name: "C", link: "https://gcc.gnu.org/" },
+            { name: "Go", link: "https://golang.org/dl/" },
+            { name: "Rust", link: "https://www.rust-lang.org/tools/install" },
+            { name: "PHP", link: "https://www.php.net/downloads.php" },
+            { name: "Ruby", link: "https://www.ruby-lang.org/en/downloads/" },
+            { name: "Swift", link: "https://swift.org/download/" },
+            { name: "Kotlin", link: "https://kotlinlang.org/docs/command-line.html" },
+            { name: "TypeScript", link: "https://www.typescriptlang.org/download" },
+            { name: "R", link: "https://www.r-project.org/" },
+            { name: "MATLAB", link: "https://www.mathworks.com/downloads" },
+            { name: "Scala", link: "https://www.scala-lang.org/download/" },
+            { name: "Perl", link: "https://www.perl.org/get.html" },
+            { name: "Haskell", link: "https://www.haskell.org/downloads/" },
+            { name: "Dart", link: "https://dart.dev/get-dart" },
+            { name: "Lua", link: "https://www.lua.org/download.html" },
+            { name: "Objective-C", link: "https://developer.apple.com/xcode/" },
+            { name: "Groovy", link: "https://groovy.apache.org/download.html" },
+            { name: "Elixir", link: "https://elixir-lang.org/install.html" },
+            { name: "Clojure", link: "https://clojure.org/guides/getting_started" },
+            { name: "F#", link: "https://fsharp.org/" },
+            { name: "Assembly", link: "https://www.nasm.us/" },
+            { name: "SQL", link: "https://www.mysql.com/downloads/" },
+            { name: "PowerShell", link: "https://github.com/PowerShell/PowerShell" },
+            { name: "Bash", link: "https://www.gnu.org/software/bash/" },
+            { name: "VBA", link: "https://docs.microsoft.com/en-us/office/vba/api/overview/" },
+            { name: "Delphi", link: "https://www.embarcadero.com/products/delphi" },
+            { name: "Pascal", link: "https://www.freepascal.org/" },
+            { name: "Ada", link: "https://www.adacore.com/gnatpro/gnat-community-edition" },
+            { name: "Lisp", link: "https://www.sbcl.org/" },
+            { name: "Prolog", link: "https://www.swi-prolog.org/" },
+            { name: "Scheme", link: "https://racket-lang.org/" },
+            { name: "Erlang", link: "https://www.erlang.org/downloads" },
+            { name: "Fortran", link: "https://gcc.gnu.org/fortran/" },
+            { name: "COBOL", link: "https://gnucobol.sourceforge.io/" },
+            { name: "Julia", link: "https://julialang.org/downloads/" },
+            { name: "OCaml", link: "https://ocaml.org/docs/install" },
+            { name: "Nim", link: "https://nim-lang.org/install.html" },
+            { name: "Crystal", link: "https://crystal-lang.org/install/" },
+            { name: "D", link: "https://dlang.org/download.html" },
+            { name: "Zig", link: "https://ziglang.org/download/" },
+            { name: "Racket", link: "https://download.racket-lang.org/" },
+            { name: "Solidity", link: "https://soliditylang.org/" },
+            { name: "Reason", link: "https://reasonml.github.io/" },
+            { name: "Elm", link: "https://guide.elm-lang.org/install/elm.html" },
+        	{ name: "ActionScript", link: "https://www.adobe.com/products/flashplayer.html" },
+            { name: "Apex", link: "https://developer.salesforce.com/platform/apex" },
+            { name: "Arduino", link: "https://www.arduino.cc/en/software" },
+            { name: "AutoHotkey", link: "https://www.autohotkey.com/" },
+            { name: "AWK", link: "https://www.gnu.org/software/gawk/" },
+            { name: "Ballerina", link: "https://ballerina.io/downloads/" },
+            { name: "Ceylon", link: "https://ceylon-lang.org/" },
+            { name: "Chapel", link: "https://chapel-lang.org/download.html" },
+            { name: "CoffeeScript", link: "https://coffeescript.org/" },
+            { name: "ColdFusion", link: "https://www.adobe.com/products/coldfusion-family.html" },
+            { name: "Common Lisp", link: "https://common-lisp.net/implementations" },
+            { name: "Component Pascal", link: "https://www.blackboxframework.org/" },
+            { name: "Eiffel", link: "https://www.eiffel.com/eiffelstudio/download/" },
+            { name: "Forth", link: "https://www.gforth.org/" },
+            { name: "Hack", link: "https://hacklang.org/" },
+            { name: "IDL", link: "https://www.l3harrisgeospatial.com/Software-Technology/IDL" },
+            { name: "Io", link: "http://iolanguage.com/" },
+            { name: "J", link: "https://www.jsoftware.com/" },
+            { name: "JScript", link: "https://docs.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2010/hbxc2t98(v=vs.100)" },
+            { name: "KornShell", link: "http://www.kornshell.com/" },
+            { name: "LabVIEW", link: "https://www.ni.com/en-us/shop/labview.html" },
+            { name: "Logo", link: "https://fmslogo.sourceforge.io/" },
+            { name: "MUMPS", link: "https://fis-gtm.com/" },
+            { name: "NXT-G", link: "https://www.lego.com/en-us/mindstorms/downloads" },
+            { name: "OpenEdge ABL", link: "https://www.progress.com/openedge" },
+            { name: "Oz", link: "https://mozart-oz.org/" },
+            { name: "Pike", link: "https://pike.lysator.liu.se/" },
+            { name: "Processing", link: "https://processing.org/download/" },
+            { name: "Pure Data", link: "https://puredata.info/" },
+            { name: "Q", link: "https://kx.com/developers/download-q/" },
+            { name: "Red", link: "https://www.red-lang.org/" },
+            { name: "Ring", link: "http://ring-lang.sourceforge.net/" },
+            { name: "S-PLUS", link: "https://www.tibco.com/products/tibco-spotfire-s+" },
+            { name: "SAS", link: "https://www.sas.com/en_us/software/university-edition.html" },
+            { name: "Squeak", link: "https://squeak.org/" },
+            { name: "Standard ML", link: "http://sml-family.org/" },
+            { name: "Tcl", link: "https://www.tcl.tk/" },
+            { name: "Vala", link: "https://wiki.gnome.org/Projects/Vala" },
+            { name: "Verilog", link: "http://iverilog.icarus.com/" },
+            { name: "VHDL", link: "https://www.ghdl.free.fr/" },
+            { name: "Visual FoxPro", link: "https://www.microsoft.com/en-us/download/details.aspx?id=17957" },
+            { name: "Whitespace", link: "https://web.archive.org/web/20150904122149/http://compsoc.dur.ac.uk/whitespace/" },
+            { name: "Wolfram Language", link: "https://www.wolfram.com/language/" },
+            { name: "X10", link: "https://x10-lang.org/" },
+            { name: "XQuery", link: "https://www.w3.org/XML/Query/" },
+            { name: "Z shell", link: "https://www.zsh.org/" }
+        ];
+
+        const grid = document.getElementById('language-grid');
+        const searchInput = document.getElementById('search-input');
+        const noResultsMessage = document.getElementById('no-results');
+
+        function displayLanguages(filteredLanguages) {
+            grid.innerHTML = '';
+            if (filteredLanguages.length === 0) {
+                noResultsMessage.style.display = 'block';
+            } else {
+                noResultsMessage.style.display = 'none';
+            }
+
+            filteredLanguages.forEach((lang, index) => {
+                const card = document.createElement('div');
+                card.className = 'card rounded-lg shadow-lg';
+                card.style.animationDelay = `${index * 0.03}s`;
+                
+                card.innerHTML = `
+                    <a href="${lang.link}" target="_blank" rel="noopener noreferrer" class="card-link p-4 h-24">
+                        <div class="card-content text-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400/70 mx-auto mb-1"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            <h3 class="font-semibold text-base font-orbitron text-gray-100">${lang.name}</h3>
+                        </div>
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        searchInput.addEventListener('keyup', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const filteredLanguages = languages.filter(lang => 
+                lang.name.toLowerCase().includes(searchTerm)
+            );
+            displayLanguages(filteredLanguages);
+        });
+
+        // Initial display
+        displayLanguages(languages);
+    </script>
+</body>
+</html>
+
+
